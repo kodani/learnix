@@ -1,9 +1,31 @@
 ;
+;A Simple boot secotor to print chrs on screen
+;
+
+mov ah,0x0e ;int 10/ah = oeh -> scrolling teletype BIOS routine
+
+mov al,'H'
+int 0x10
+
+mov al,'E'
+int 0x10
+
+mov al,'L'
+int 0x10
+
+mov al,'L'
+int 0x10
+
+mov al,'O'
+int 0x10
+
+;jmp $
+;
 ; A simple boot sector program that loops forever
 ;
 
 loop:
-    jmp loop
+   jmp loop
 
 times 510-($-$$) db 0  ;when compiled,our program must fit into 512
                        ;bytes with the last two bytes the magic number
